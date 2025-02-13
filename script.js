@@ -22,6 +22,21 @@ let mistakes;
 let hits;
 
 
+const drawWord = () => {
+  selectWord.forEach(letter => {
+    const letterElement = document.createElement('span');
+    letterElement.innerHTML = letter:toUpperCase();
+    letterElement.classList.add('letter');
+    letterElement.classList.add('hidden);
+    wordContainer.appendChild(letterElement);                            
+  });
+};
+
+const selectRandomWord = () => {
+  let word = words [Math.floor((Math.random() * words.length))].toUpperCase();
+  selectWord = word.split('');
+};
+
 const drawHangMan = () => {
   ctx.canvas.width = 120;
   ctx.canvas.height = 160;
@@ -42,7 +57,8 @@ const startGame = () => {
   usedLetterElement.innerHTML = '';
   startButton.style.display = 'none';
   drawHangMan();
-  
+  selectRandomWord();
+  drawWord();
 };
 
 startButton.addEventListener('click', startGame);
