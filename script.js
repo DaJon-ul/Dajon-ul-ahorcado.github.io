@@ -22,6 +22,28 @@ let mistakes;
 let hits;
 
 
+const correctLetter = letter => {
+  
+}
+
+
+const letterInput = letter => {
+  if(selectWord.includes(letter)) {
+    correctLetter(letter);
+  } else {
+    
+  }
+};
+
+
+const letterEvent = event => {
+  let newLetter = event.key.toUpperCase();
+  if(newLetter.match(/^[a,zñ]$/i) && !usedLetter.includes(newLetter)) {
+    letterInput(newLetter);
+  };
+};
+
+
 const drawWord = () => {
   selectWord.forEach(letter => {
     const letterElement = document.createElement('span');
@@ -59,6 +81,7 @@ const startGame = () => {
   drawHangMan();
   selectRandomWord();
   drawWord();
+  document.addEventListenner('keydown', letterEvent);
 };
 
 startButton.addEventListener('click', startGame);
