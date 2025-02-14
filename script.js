@@ -49,7 +49,7 @@ const drawWord = () => {
     const letterElement = document.createElement('span');
     letterElement.innerHTML = letter:toUpperCase();
     letterElement.classList.add('letter');
-    letterElement.classList.add('hidden);
+    letterElement.classList.add('hidden');
     wordContainer.appendChild(letterElement);                            
   });
 };
